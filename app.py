@@ -25,7 +25,7 @@ def login():
             else:
                 st.error("Invalid username or password.")
     if rerun:
-        st.experimental_rerun()
+        st.rerun()
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
