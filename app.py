@@ -88,9 +88,9 @@ else:
 # Main Area
 # =============================
 # Logo
-st.image("DUR.png", width=120)
+st.image("DUR.png", width=240, height=60)
 
-st.title("DUR Traffic Analytics Dashboard")
+st.title("DUR Traffic Analytics Dashboard (3hrs monitoring)")
 st.markdown("""
 By: **ZoneSense (2025 ©)**
 """)
