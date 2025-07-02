@@ -21,7 +21,8 @@ def login():
             valid_password = st.secrets["login"]["password"]
             if username == valid_username and password == valid_password:
                 st.session_state["logged_in"] = True
-                st.success("Login successful! Please rerun the app if not redirected.")
+                st.success("Login successful! Redirecting...")
+                st.experimental_rerun()
             else:
                 st.error("Invalid username or password.")
 
