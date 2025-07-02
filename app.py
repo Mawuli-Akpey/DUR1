@@ -99,7 +99,7 @@ By: **ZoneSense (2025 ©)**
 # Insert Feed Screenshot (centered)
 # =============================
 st.markdown("<div style='text-align: center;'>", unsafe_allow_html=True)
-st.image("feed.png", caption="Sample Feed Frame Used for Inference", use_container_width=True)
+st.image("feed.png", caption="Sample Feed Frame Used for Inference", width=400, height=250))
 st.markdown("</div>", unsafe_allow_html=True)
 
 # =============================
