@@ -88,7 +88,7 @@ else:
 # Main Area
 # =============================
 # Logo
-st.image("DUR.png", width=240, height=60)
+st.image("DUR.png", width=240)
 
 st.title("DUR Traffic Analytics Dashboard (3hrs monitoring)")
 st.markdown("""
