@@ -7,11 +7,10 @@ import plotly.express as px
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-# --- Simple Login Page using Streamlit secrets ---
-# Credentials are stored in .streamlit/secrets.toml
-
+# --- Login Page ---
 def login():
     st.title("Login")
+    rerun = False  # Flag to trigger rerun after form submission
     with st.form("login_form"):
         username = st.text_input("Username")
         password = st.text_input("Password", type="password")
@@ -22,9 +21,11 @@ def login():
             if username == valid_username and password == valid_password:
                 st.session_state["logged_in"] = True
                 st.success("Login successful! Redirecting...")
-                st.experimental_rerun()
+                rerun = True
             else:
                 st.error("Invalid username or password.")
+    if rerun:
+        st.experimental_rerun()
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
