@@ -12,19 +12,18 @@ import matplotlib.pyplot as plt
 
 def login():
     st.title("Login")
-    username = st.text_input("Username")
-    password = st.text_input("Password", type="password")
-    login_btn = st.button("Login")
-    if login_btn:
-        # Read credentials from Streamlit secrets
-        valid_username = st.secrets["login"]["username"]
-        valid_password = st.secrets["login"]["password"]
-        if username == valid_username and password == valid_password:
-            st.session_state["logged_in"] = True
-            st.success("Login successful! Please refresh the page if not redirected.")
-            st.session_state["force_rerun"] = not st.session_state.get("force_rerun", False)
-        else:
-            st.error("Invalid username or password.")
+    with st.form("login_form"):
+        username = st.text_input("Username")
+        password = st.text_input("Password", type="password")
+        submitted = st.form_submit_button("Login")
+        if submitted:
+            valid_username = st.secrets["login"]["username"]
+            valid_password = st.secrets["login"]["password"]
+            if username == valid_username and password == valid_password:
+                st.session_state["logged_in"] = True
+                st.success("Login successful! Please rerun the app if not redirected.")
+            else:
+                st.error("Invalid username or password.")
 
 if "logged_in" not in st.session_state:
     st.session_state["logged_in"] = False
